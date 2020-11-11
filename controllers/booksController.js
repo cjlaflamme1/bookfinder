@@ -10,5 +10,13 @@ module.exports = {
         db.Books.create(req.body).then((newBook) => {
             res.json(newBook)
         }).catch(err => res.json(err));
-    }
+    }, 
+    remove: (req, res) => {
+        db.Books.findById(req.params.id).then((book) => {
+            book.remove();
+        }).then((remainingData) => {
+            res.json(remainingData);
+        }).catch(err => res.json(err));
+    },
+
 }

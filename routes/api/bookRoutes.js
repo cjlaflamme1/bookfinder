@@ -9,7 +9,9 @@ router.route('/')
 
 // This will match with "/api/books/:id"
 router.route('/:id')
-// route requests and actions will go here. 
+// route requests and actions will go here.
+.delete(booksController.remove)
+
 
 
 module.exports = router;

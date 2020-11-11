@@ -3,13 +3,12 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Search from './pages/search';
 import Saved from './pages/saved';
+import Nav from './components/nav';
 
 function App() {
   return (
     <Router>
-    <div>
-      Nav will go here. 
-    </div>
+    <Nav />
     <div>
       Big ole header will go here. 
     </div>

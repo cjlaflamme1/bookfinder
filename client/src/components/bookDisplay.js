@@ -1,11 +1,17 @@
 import React from 'react';
 
-function BookDisplay() {
+function BookDisplay(props) {
+
+
+
+
 
     return(
-        <div>
-            Books will eventually go here.
+        <>
+        <div className="single-book-display">
+
         </div>
+        </>
     )
 }
 

@@ -7,6 +7,8 @@ function Search() {
     const searchByRef = useRef();
 
 
+        // Set useState to set state of books to an array of objects.
+
     const submitSearch = (event) => {
         event.preventDefault();
         if(searchByRef === "Title") {
@@ -18,7 +20,8 @@ function Search() {
                 console.log(res);
             }).catch(err => console.log(err));
         }
-
+        // Set this submitSearch function to fill the state of the books array with the retried items.
+        //  THEN, set the props for the bookdisplay as the current state.
         // return;
     }
 

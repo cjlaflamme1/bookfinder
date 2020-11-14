@@ -1,19 +1,32 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import BookDisplay from '../components/bookDisplay';
 import API from '../utils/api';
 
 function Search() {
     const searchInputRef = useRef();
     const searchByRef = useRef();
+    const [books, setBooks] = useState([])
 
+ 
 
         // Set useState to set state of books to an array of objects.
 
     const submitSearch = (event) => {
         event.preventDefault();
-        if(searchByRef === "Title") {
+   
+        if(searchByRef.current.value === "Title") {
             API.searchByTitle(searchInputRef.current.value).then((res) => {
-                console.log(res);
+                
+                const newBooks = [];
+                // console.log(res);
+                const { data: { items}} = res;
+                items.map(({ volumeInfo }) => {
+                    const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
+                    newBooks.push({author, description, imageLinks, infoLink, subtitle, title})
+                })
+                console.log(newBooks);
+                setBooks(newBooks);
+
             }).catch(err => console.log(err));
         } else {
             API.searchByAuthor(searchInputRef.current.value).then((res) => {
@@ -43,7 +56,11 @@ function Search() {
                 </form>
             </div>
             <div className="books-container">
-                <BookDisplay />
+                {books && 
+                books.map((book) => {
+                    return <BookDisplay data={book} />
+                })
+                }
             </div>
         </>
     )

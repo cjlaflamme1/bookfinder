@@ -6,15 +6,19 @@ function BookDisplay(props) {
 
 
 
-    return(
+    return (
         <>
-        <div className="single-book-display">
-            <img className="book-image" />
-            <div className="book-title"></div>
-            <div className="book-author"></div>
-            <div className="book-description"></div>
-            <a className="book-link" href="#">Learn More Here</a>
-        </div>
+        {console.log("BookDisplay rendered")}
+            <div className="single-book-display">
+                {props.data.imageLinks &&
+                <img className="book-image" src={props.data.imageLinks.thumbnail} />
+                
+                }
+                <div className="book-title">{props.data.title}</div>
+                <div className="book-author">{props.data.authors}</div>
+                <div className="book-description">{props.data.description}</div>
+                <a className="book-link" href={props.data.infoLink} target="_blank">Learn More Here</a>
+            </div>
         </>
     )
 }

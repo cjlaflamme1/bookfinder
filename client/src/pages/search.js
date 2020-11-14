@@ -30,7 +30,15 @@ function Search() {
             }).catch(err => console.log(err));
         } else {
             API.searchByAuthor(searchInputRef.current.value).then((res) => {
-                console.log(res);
+                const newBooks = [];
+                // console.log(res);
+                const { data: { items}} = res;
+                items.map(({ volumeInfo }) => {
+                    const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
+                    newBooks.push({author, description, imageLinks, infoLink, subtitle, title})
+                })
+                console.log(newBooks);
+                setBooks(newBooks);
             }).catch(err => console.log(err));
         }
         // Set this submitSearch function to fill the state of the books array with the retried items.

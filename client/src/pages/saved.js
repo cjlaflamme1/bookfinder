@@ -19,7 +19,9 @@ function Saved() {
             <h4>
                 Saved Books
             </h4> 
+            {console.log(savedBooks)}
             {savedBooks &&
+            
             savedBooks.map((book) => {
                 <BookDisplay data={book}/>
 

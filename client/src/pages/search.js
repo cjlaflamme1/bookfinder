@@ -44,9 +44,9 @@ function Search() {
                 const newBooks = [];
                 // console.log(res);
                 const { data: { items}} = res;
-                items.map(({ volumeInfo }) => {
+                items.map(({ id, volumeInfo }) => {
                     const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
-                    newBooks.push({author, description, imageLinks, infoLink, subtitle, title})
+                    newBooks.push({id, author, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
                 setBooks(newBooks);

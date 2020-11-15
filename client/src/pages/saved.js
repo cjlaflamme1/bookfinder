@@ -22,7 +22,7 @@ function Saved() {
 
         API.getSavedBooks.then((data) => {
             setSavedBooks(data.data);
-        })
+        }).catch((err) => console.log(err));
     }
 
 

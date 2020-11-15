@@ -11,7 +11,7 @@ function Saved() {
             
             setSavedBooks(data.data);
         })
-    }, [])
+    }, [savedBooks])
 
     const submitDelete = (event) => {
         event.preventDefault();
@@ -20,12 +20,9 @@ function Saved() {
         
         API.deleteSaved(bookID);
 
-        const removeBook = (book) => {
-            console.log(book);
-            return book.id !== bookID;
-        };
-
-        setSavedBooks(savedBooks.find(removeBook));
+        API.getSavedBooks.then((data) => {
+            setSavedBooks(data.data);
+        }).catch((err) => console.log(err));
     }
 
 

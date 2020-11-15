@@ -8,4 +8,10 @@ export default {
     searchByAuthor: (searchTerm) => {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${searchTerm}+inauthor`)
     },
+    addNewBook: (book) => {
+        return axios.post("/api/books", book);
+    },
+    searchByID: (id) => {
+        return axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    }
 }

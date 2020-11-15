@@ -7,7 +7,18 @@ function Search() {
     const searchByRef = useRef();
     const [books, setBooks] = useState([])
 
- 
+    const submitSave = (event) => {
+        event.preventDefault();
+        console.log(event.target.childNodes[0].dataset.id);
+        const bookID = event.target.childNodes[0].dataset.id;
+        API.searchByID(bookID).then((data) => {
+            console.log(data);
+            const { data: { id, volumeInfo: { authors:[author], description, imageLinks, infoLink, subtitle, title }}} = data;
+            const newBook = { id, title, author, description, imageLinks, infoLink, subtitle};
+            console.log(newBook);
+            API.addNewBook(newBook);
+        })
+    }
 
         // Set useState to set state of books to an array of objects.
 
@@ -20,9 +31,9 @@ function Search() {
                 const newBooks = [];
                 // console.log(res);
                 const { data: { items}} = res;
-                items.map(({ volumeInfo }) => {
+                items.map(({ id, volumeInfo }) => {
                     const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
-                    newBooks.push({author, description, imageLinks, infoLink, subtitle, title})
+                    newBooks.push({id, author, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
                 setBooks(newBooks);
@@ -34,8 +45,8 @@ function Search() {
                 // console.log(res);
                 const { data: { items}} = res;
                 items.map(({ volumeInfo }) => {
-                    const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
-                    newBooks.push({author, description, imageLinks, infoLink, subtitle, title})
+                    const { authors:[author], description, imageLinks: { thumbnail: image}, infoLink, subtitle, title } = volumeInfo;
+                    newBooks.push({author, description, image, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
                 setBooks(newBooks);
@@ -66,7 +77,10 @@ function Search() {
             <div className="books-container">
                 {books && 
                 books.map((book) => {
-                    return <BookDisplay data={book} />
+                  return  <form onSubmit={submitSave}>
+                     <BookDisplay data={book} />
+                <button type="submit">Save</button>
+                </form>
                 })
                 }
             </div>

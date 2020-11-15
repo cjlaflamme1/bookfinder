@@ -13,9 +13,7 @@ module.exports = {
     }, 
     remove: (req, res) => {
         console.log(req.params);
-        db.Books.findById({id: req.params.id}).then((book) => {
-            book.remove();
-        }).then((remainingData) => {
+        db.Books.findOneAndDelete({id: req.params.id}).then((remainingData) => {
             res.json(remainingData);
         }).catch(err => res.json(err));
     },

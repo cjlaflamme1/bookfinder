@@ -7,7 +7,7 @@ function BookDisplay(props) {
         <>
         {console.log("BookDisplay rendered")}
             <div className="single-book-display" data-id={props.data.id}>
-                {props.data.imageLinks &&
+                {props.data.imageLinks.thumbnail &&
                 <img className="book-image" src={props.data.imageLinks.thumbnail} />
                 
                 }

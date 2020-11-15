@@ -15,11 +15,14 @@ function Saved() {
 
     const submitDelete = (event) => {
         event.preventDefault();
-        
-        console.log('buttons pressed');
+
         const bookID = event.target.childNodes[0].dataset.id;
-        console.log(`trying to delete ${bookID}`);
+        
         API.deleteSaved(bookID);
+
+        API.getSavedBooks.then((data) => {
+            setSavedBooks(data.data);
+        })
     }
 
 

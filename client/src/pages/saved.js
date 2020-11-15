@@ -10,7 +10,7 @@ function Saved() {
             console.log(data);
             setSavedBooks(data);
         })
-    }, [])
+    }, [savedBooks])
 
 
     return (

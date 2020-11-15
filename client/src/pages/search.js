@@ -33,8 +33,8 @@ function Search() {
                 const { data: { items}} = res;
                 console.log(items);
                 items.map(({ id, volumeInfo }) => {
-                    const { authors:[author = "Not Provided"], description= "Not Provided", imageLinks, infoLink, subtitle= "Not Provided", title= "Not Provided" } = volumeInfo;
-                    newBooks.push({id, author, description, imageLinks, infoLink, subtitle, title})
+                    const { authors, description= "Description Not Provided", imageLinks, infoLink, subtitle= "Not Provided", title= "Not Provided" } = volumeInfo;
+                    newBooks.push({id, authors, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
                 setBooks(newBooks);
@@ -46,8 +46,8 @@ function Search() {
                 // console.log(res);
                 const { data: { items}} = res;
                 items.map(({ id, volumeInfo }) => {
-                    const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
-                    newBooks.push({id, author, description, imageLinks, infoLink, subtitle, title})
+                    const { authors, description, imageLinks, infoLink, subtitle, title } = volumeInfo;
+                    newBooks.push({id, authors, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
                 setBooks(newBooks);

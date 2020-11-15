@@ -15,6 +15,7 @@ function Saved() {
 
     const submitDelete = (event) => {
         event.preventDefault();
+        
         console.log('buttons pressed');
         const bookID = event.target.childNodes[0].dataset.id;
         console.log(`trying to delete ${bookID}`);
@@ -36,7 +37,7 @@ function Saved() {
             savedBooks.map((book) => {
                 return <form onSubmit={submitDelete} className="col-12 col-md-4 my-2">
                     <BookDisplay data={book}/>
-                <button type="button"  className="btn btn-info">Delete</button>
+                <button type="submit"  className="btn btn-info">Delete</button>
                 </form>
 
             })}

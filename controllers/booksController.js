@@ -12,7 +12,7 @@ module.exports = {
         }).catch(err => res.json(err));
     }, 
     remove: (req, res) => {
-        db.Books.findById(req.params.id).then((book) => {
+        db.Books.findById({id: req.params.id}).then((book) => {
             book.remove();
         }).then((remainingData) => {
             res.json(remainingData);

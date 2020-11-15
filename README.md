@@ -19,7 +19,7 @@ Search for books on Google, and save into your collection to review later.
     
     
 ### Finished Project
-Project Link: [Google Book Finder](https://bookfinder-bingo.herokuapp.com/saved)
+Project Link: [Google Book Finder](https://bookfinder-bingo.herokuapp.com/)
     
     
 ### Project Screenshot

@@ -13,7 +13,7 @@ function BookDisplay(props) {
                 }
                 <div className="card-body">
                     <div className="book-title card-title">{props.data.title}</div>
-            <div className="book-author card-subtitle">{props.data.authors[0]} || {props.data.author}</div>
+            <div className="book-author card-subtitle">{props.data.authors[0]}</div>
                     <div className="book-description card-text">{props.data.description}</div>
 
                 </div>

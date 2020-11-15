@@ -15,8 +15,9 @@ function Saved() {
 
     const submitDelete = (event) => {
         event.preventDefault();
-        console.log(event.target.childNodes[0].dataset.id);
-        // const bookID = event.target.childNodes[0].dataset.id;
+        
+        const bookID = event.target.childNodes[0].dataset.id;
+        API.deleteSaved(bookID);
     }
 
 

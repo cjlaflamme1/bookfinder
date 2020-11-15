@@ -7,7 +7,7 @@ function Saved() {
 
     useEffect(() => {
         API.getSavedBooks().then((data) => {
-            console.log(data);
+            console.log(data.data);
             setSavedBooks({...savedBooks, data});
         })
     }, [savedBooks])

@@ -34,7 +34,7 @@ function Saved() {
             {savedBooks &&
             
             savedBooks.map((book) => {
-                return <form onSubmit={() => submitDelete} className="col-12 col-md-4 my-2">
+                return <form onSubmit={submitDelete} className="col-12 col-md-4 my-2">
                     <BookDisplay data={book}/>
                 <button type="submit"  className="btn btn-info">Delete</button>
                 </form>

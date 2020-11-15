@@ -13,7 +13,7 @@ function Search() {
         const bookID = event.target.childNodes[0].dataset.id;
         API.searchByID(bookID).then((data) => {
             console.log(data);
-            const { data: { id, volumeInfo: { authors, description, imageLinks, infoLink, subtitle, title }}} = data;
+            const { data: { id, volumeInfo: { authors = ["No Author Provided"], description, imageLinks, infoLink, subtitle, title }}} = data;
             const newBook = { id, title, authors, description, imageLinks, infoLink, subtitle};
             console.log(newBook);
             API.addNewBook(newBook);

@@ -29,7 +29,7 @@ function Search() {
             API.searchByTitle(searchInputRef.current.value).then((res) => {
                 
                 const newBooks = [];
-                // console.log(res);
+                console.log(res);
                 const { data: { items}} = res;
                 items.map(({ id, volumeInfo }) => {
                     const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;

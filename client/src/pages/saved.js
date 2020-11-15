@@ -1,7 +1,16 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BookDisplay from '../components/bookDisplay';
+import API from '../utils/api';
 
 function Saved() {
+    const [savedBooks, setSavedBooks] = useState([]);
+
+    useEffect(() => {
+        API.getSavedBooks().then((data) => {
+            console.log(data);
+            setSavedBooks(data);
+        })
+    }, [])
 
 
     return (
@@ -9,7 +18,11 @@ function Saved() {
             <h4>
                 Saved Books
             </h4> 
-            <BookDisplay />
+            {savedBooks &&
+            savedBooks.map((book) => {
+                <BookDisplay data={book}/>
+
+            })}
         </div>
     )
 }

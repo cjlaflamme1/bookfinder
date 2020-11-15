@@ -13,5 +13,8 @@ export default {
     },
     searchByID: (id) => {
         return axios.get(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    },
+    getSavedBooks: () => {
+        return axios.get("/api/books");
     }
 }

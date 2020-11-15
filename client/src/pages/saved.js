@@ -11,7 +11,7 @@ function Saved() {
             
             setSavedBooks(data.data);
         })
-    }, [savedBooks])
+    }, [])
 
 
     return (

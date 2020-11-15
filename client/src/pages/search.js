@@ -79,8 +79,11 @@ function Search() {
                 {books && 
                 books.map((book) => {
                   return  <form onSubmit={submitSave} className="col-12 col-md-4 my-2">
+                     <div>
                      <BookDisplay data={book}/>
                 <button type="submit" className="btn btn-info">Save</button>
+
+                     </div>
                 </form>
                 })
                 }

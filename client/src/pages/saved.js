@@ -13,6 +13,12 @@ function Saved() {
         })
     }, [])
 
+    const submitDelete = (event) => {
+        event.preventDefault();
+        console.log(event.target.childNodes[0].dataset.id);
+        // const bookID = event.target.childNodes[0].dataset.id;
+    }
+
 
     return (
         <div className="books-container">
@@ -23,7 +29,10 @@ function Saved() {
             {savedBooks &&
             
             savedBooks.map((book) => {
-                return <BookDisplay data={book}/>
+                return <form onSubmit={submitDelete}>
+                    <BookDisplay data={book}/>
+                <button type="submit">Delete</button>
+                </form>
 
             })}
         </div>

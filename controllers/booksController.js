@@ -12,6 +12,7 @@ module.exports = {
         }).catch(err => res.json(err));
     }, 
     remove: (req, res) => {
+        console.log(req.params);
         db.Books.findById({id: req.params.id}).then((book) => {
             book.remove();
         }).then((remainingData) => {

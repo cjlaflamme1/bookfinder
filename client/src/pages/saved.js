@@ -23,21 +23,25 @@ function Saved() {
 
 
     return (
-        <div className="books-container">
+        <>
+        <div className=" d-flex justify-content-center border">
             <h4>
                 Saved Books
-            </h4> 
+            </h4>
+            </div>
+        <div className="books-container row"> 
             {console.log(savedBooks)}
             {savedBooks &&
             
             savedBooks.map((book) => {
-                return <form onSubmit={submitDelete}>
+                return <form onSubmit={submitDelete} className="col-12 col-md-4 my-2">
                     <BookDisplay data={book}/>
-                <button type="submit">Delete</button>
+                <button type="submit"  className="btn btn-info">Delete</button>
                 </form>
 
             })}
         </div>
+        </>
     )
 }
 

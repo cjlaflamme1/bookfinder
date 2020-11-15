@@ -5,17 +5,20 @@ function BookDisplay(props) {
 
     return (
         <>
-        {console.log("BookDisplay rendered")}
-            <div className="single-book-display" data-id={props.data.id}>
-                {props.data.imageLinks.thumbnail &&
-                <img className="book-image" src={props.data.imageLinks.thumbnail} />
-                
+
+            <div className="single-book-display card" data-id={props.data.id}>
+                {props.data.imageLinks &&
+                    <img className="book-image card-img-top" src={props.data.imageLinks.thumbnail} />
+
                 }
-                <div className="book-title">{props.data.title}</div>
-                <div className="book-author">{props.data.authors}</div>
-                <div className="book-description">{props.data.description}</div>
-                <a className="book-link" href={props.data.infoLink} target="_blank">Learn More Here</a>
-                
+                <div className="card-body">
+                    <div className="book-title card-title">{props.data.title}</div>
+                    <div className="book-author card-subtitle">{props.data.authors}</div>
+                    <div className="book-description card-text">{props.data.description}</div>
+
+                </div>
+                    <a className="book-link btn btn-primary" href={props.data.infoLink} target="_blank">Learn More Here</a>
+
             </div>
         </>
     )

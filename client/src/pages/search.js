@@ -31,8 +31,9 @@ function Search() {
                 const newBooks = [];
                 console.log(res);
                 const { data: { items}} = res;
+                console.log(items);
                 items.map(({ id, volumeInfo }) => {
-                    const { authors:[author], description, imageLinks, infoLink, subtitle, title } = volumeInfo;
+                    const { authors:[author = "Not Provided"], description= "Not Provided", imageLinks, infoLink, subtitle= "Not Provided", title= "Not Provided" } = volumeInfo;
                     newBooks.push({id, author, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
@@ -59,27 +60,27 @@ function Search() {
 
     return (
         <>
-            <div className="search-container">
+            <div className="search-container d-flex justify-content-center border">
                 <h4>
-                    Book Search
-            </h4>
+                    Book Search:
+                </h4>
                 <form onSubmit={submitSearch}>
                     <input name="searchContent" ref= {searchInputRef}/>
-                    <br />
+                    {/* <br /> */}
                     <label for="searchMethod">Search by:</label>
-                    <select name="searchMethod" id="searchMethod" ref={searchByRef}>
+                    <select name="searchMethod" id="searchMethod" ref={searchByRef} className="m-2">
                         <option value="Title" >Title</option>
                         <option value="Author" >Author</option>
                     </select>
-                    <button type="submit">Search</button>
+                    <button type="submit" className="btn btn-info">Search</button>
                 </form>
             </div>
-            <div className="books-container">
+            <div className="books-container row">
                 {books && 
                 books.map((book) => {
-                  return  <form onSubmit={submitSave}>
-                     <BookDisplay data={book} />
-                <button type="submit">Save</button>
+                  return  <form onSubmit={submitSave} className="col-12 col-md-4 my-2">
+                     <BookDisplay data={book}/>
+                <button type="submit" className="btn btn-info">Save</button>
                 </form>
                 })
                 }

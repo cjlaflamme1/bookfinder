@@ -14,10 +14,16 @@ function App() {
     <Switch>
       {/* This is where the main page routes will go.  */}
       <Route exact path= "/">
+        <div className="container">
         <Search />
+
+        </div>
       </Route>
       <Route exact path="/saved">
+        <div className="container">
         <Saved />
+
+        </div>
       </Route>
     </Switch>
 

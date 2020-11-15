@@ -33,7 +33,7 @@ function Search() {
                 const { data: { items}} = res;
                 console.log(items);
                 items.map(({ id, volumeInfo }) => {
-                    const { authors, description= "Description Not Provided", imageLinks, infoLink, subtitle= "Not Provided", title= "Not Provided" } = volumeInfo;
+                    const { authors = ["No Author Provided"], description= "Description Not Provided", imageLinks, infoLink, subtitle= "Not Provided", title= "Not Provided" } = volumeInfo;
                     newBooks.push({id, authors, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
@@ -46,7 +46,7 @@ function Search() {
                 // console.log(res);
                 const { data: { items}} = res;
                 items.map(({ id, volumeInfo }) => {
-                    const { authors, description, imageLinks, infoLink, subtitle, title } = volumeInfo;
+                    const { authors =["No Author Provided"], description= "Description Not Provided", imageLinks, infoLink, subtitle, title } = volumeInfo;
                     newBooks.push({id, authors, description, imageLinks, infoLink, subtitle, title})
                 })
                 console.log(newBooks);
@@ -61,13 +61,13 @@ function Search() {
     return (
         <>
             <div className="search-container d-flex justify-content-center border">
-                <h4>
+                <h4 className="m-2">
                     Book Search:
                 </h4>
                 <form onSubmit={submitSearch}>
-                    <input name="searchContent" ref= {searchInputRef}/>
-                    {/* <br /> */}
-                    <label for="searchMethod">Search by:</label>
+                    <input name="searchContent" ref= {searchInputRef} className="m-2"/>
+                    <br />
+                    <label for="searchMethod" className="my-2">Search by:</label>
                     <select name="searchMethod" id="searchMethod" ref={searchByRef} className="m-2">
                         <option value="Title" >Title</option>
                         <option value="Author" >Author</option>

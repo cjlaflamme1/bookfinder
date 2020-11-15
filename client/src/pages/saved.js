@@ -8,8 +8,8 @@ function Saved() {
     useEffect(() => {
         API.getSavedBooks().then((data) => {
             console.log(data.data);
-            const newData = data.data;
-            setSavedBooks({...savedBooks, newData});
+            
+            setSavedBooks(data.data);
         })
     }, [savedBooks])
 
